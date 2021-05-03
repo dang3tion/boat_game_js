@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Pirate Ping Pong</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
+
+<body>
+    <iframe src="https://olafwempe.com/mp3/silence/silence.mp3" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+    <audio autoplay>
+    </audio>
+    <div class="main-view">
+        <audio id="soundtrack" autoplay loop>
+            <source src="sound/soundtrack.mp3" type="audio/mp3">
+        </audio>
+        <audio id="coinsound">
+            <source src="sound/eat2.mp3" type="audio/mp3">
+        </audio>
+        <audio id="boatsound">
+            <source src="sound/boat.mp3" type="audio/mp3">
+        </audio>
+        <audio id="wavesound">
+            <source src="sound/soundtrack2.mp3" type="audio/mp3">
+        </audio>
+
+        <div class="wave">
+            <img class="wave-alpha" src="img/wave.png" />
+            <img class="wave-beta" src="img/wave.png" />
+        </div>
+        <img class="pirate" src="img/pirate.png" />
+        <div class="over-frame">
+            <h4 class="title">Pirate Ping Pong</h4>
+            <div class="play-frame">
+                <img class="boat" id="boat" src="img/boat.png" />
+                <div class="buttons" id="frame-menu">
+                    <button id="playbtn" onclick="play()">Play</button>
+                    <button id="guidebtn" onclick="guide()">Guide</button>
+                    <button id="settingbtn" onclick="setting()">Setting</button>
+                    <button id="exitbtn" onclick="exit()">Exit</button>
+                </div>
+                <div id="setting" class="buttons" style="display: none;">
+                    <button id="musicbtn" onclick="music()">Music: on</button>
+                    <button id="soundbtn" onclick="sound()">Sound: on</button>
+                    <button id="back-setting" onclick="back(this)"><i class=" fa fa-arrow-left"></i> Back</button>
+                </div>
+                <div id="guide" class="buttons" style="display: none;">
+
+                    <p>Using two <span><i class="fa fa-arrow-alt-circle-left"></i></span> &
+                        <span>  <i class="fa fa-arrow-alt-circle-right"></i></span> keys to move the ship to left or right </p>
+                    <button id="back-guide" onclick="back(this)"><i class=" fa fa-arrow-left"></i> Back</button>
+                </div>
+            </div>
+        </div>
+        <div class="over-canvas" id="canvas" style="display: none;">
+            <div class="canvas">
+                <canvas width="850" height="550" id="myCanvas"></canvas>
+                <div class="wave-img-beta">
+                    <img class="wave-img-f" src="/img/wave-game.png" />
+                    <img class="wave-img-f" src="/img/wave-game.png" />
+                    <img class="wave-img-f" src="/img/wave-game.png" />
+                    <img class="wave-img-f" src="/img/wave-game.png" />
+                </div>
+                <div class="wave-img-alpha">
+                    <img class="wave-img-f" src="/img/wave-game.png" />
+                    <img class="wave-img-f" src="/img/wave-game.png" />
+                    <img class="wave-img-f" src="/img/wave-game.png" />
+                    <img class="wave-img-f" src="/img/wave-game.png" />
+                </div>
+
+
+                <div id="center-canvas" class="center-canvas" style="display: none;">
+                    <h5 id="msg">Next Level!</h5>
+                    <p id="time-count">3</p>
+                </div>
+            </div>
+
+            <div class="frame-score" style="border: 1px solid #4a4a4a;
+            position: absolute;
+            top: 0;
+            right: 33px;
+            text-align: center;
+            padding: 10px 30px;
+            background: #3a9d6e;">
+                <div class="level">
+                    <p style="font-size: 24px;">Level</p>
+                    <p id="level" style="font-size: 21px;
+                    color: #ffd890;">0</p>
+                </div>
+                <div class="score">
+                    <p style="font-size: 24px;"> Score</p>
+                    <p id="score" style="font-size: 21px;
+                    color: #ffd890;">0</p>
+                </div>
+                <button id="back-frame" onclick="backframe()">
+                    Back
+                </button> <button id="playagain" onclick="playagain()">
+                    Playagain
+                </button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+</script>
+<script src="/js/operation.js"></script>
+<script src="/js/treasure.js"></script>
+<script src="/js/bullet.js"></script>
+<script src="/js/boat.js"></script>
+<script src="/js/module.js"></script>
+
+</html>
